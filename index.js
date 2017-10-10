@@ -1,3 +1,5 @@
+module.exports = loadPath;
+
 exports.options = {
   path: process.env.PATH.split(';'),
   exts: process.env.PATHEXT.toLowerCase().split(';'),
@@ -24,7 +26,7 @@ exports.options = {
 
 };
 
-function loadPath(_options = {}) {
+function loadPath(_options = {}, log = false, rlog = false) {
   const scope = {};
   const options = Object.assign({}, expots.options, _options);
   
@@ -35,10 +37,14 @@ function loadPath(_options = {}) {
         file = file.toLowerCase();
         if (options.exts.some(e => file.endsWith(e))) { // jshint ignore:line
           addToPath(scope, entry, file, options);
-          console.log(file);
+          if (log) console.log(file);
         }
       }
-    } catch (e) {}
+    } catch (e) {
+      if (rlog) {
+        console.error(e);
+      }
+    }
   }
   return scope;
 }
