@@ -4,7 +4,7 @@ const separator = require('path').sep;
 module.exports = loadPath;
 
 exports.options = {
-  path: process.env.PATH.split(';').map(e => e.trim()),
+  path: process.env.PATH.trim().split(';').map(e => e.trim()),
   exts: process.env.PATHEXT.trim().toLowerCase().split(';'),
   
   /**
