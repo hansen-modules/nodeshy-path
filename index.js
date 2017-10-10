@@ -28,7 +28,7 @@ exports.options = {
 
 function loadPath(_options = {}, log = false, rlog = false) {
   const scope = {};
-  const options = Object.assign({}, expots.options, _options);
+  const options = Object.assign({}, exports.options, _options);
   
   for (let entry of options.path) {
     try {
