@@ -1,4 +1,6 @@
 const fs = require('fs');
+const separator = require('path').sep;
+
 module.exports = loadPath;
 
 exports.options = {
