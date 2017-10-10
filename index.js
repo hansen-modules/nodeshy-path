@@ -72,6 +72,6 @@ function addToPath(scope, path, file, options) {
   // due to how path's order works (left-to-right, first takes precedence)
   // we should not replace if it appears twice.
   if (!(file in scope)) {
-    scope[file] = makePathFunc(realPath);
+    scope[file] = realPath;
   }
 }
